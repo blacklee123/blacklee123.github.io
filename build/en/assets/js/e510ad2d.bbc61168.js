@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblacklee_123_github_io=self.webpackChunkblacklee_123_github_io||[]).push([[34],{2650:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/en/blog/tags/hola","allTagsPath":"/en/blog/tags","count":1}')}}]);
