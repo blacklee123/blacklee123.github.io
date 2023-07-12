@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '李白',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  tagline: '天下第二也挺好🙂',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://blacklee123.github.io',
@@ -31,7 +31,7 @@ const config = {
     defaultLocale: 'zh-Hans',
     locales: ['en', 'zh-Hans'],
   },
-  plugins: ["docusaurus-plugin-less"],
+  plugins: ['docusaurus-plugin-less'],
   presets: [
     [
       'classic',
@@ -60,8 +60,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.png',
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
@@ -75,16 +80,19 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
+            to: '/docs/notes',
             label: '笔记',
+            position: 'left',
           },
-          { to: '/blog', label: '博客', position: 'left' },
           {
-            href: 'https://github.com/blacklee123',
-            label: 'GitHub',
-            position: 'right',
+            to: '/blog',
+            label: '博客',
+            position: 'left',
+          },
+          {
+            to: '/about',
+            label: '关于我',
+            position: 'left',
           },
         ],
       },
@@ -96,7 +104,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/notes/intro',
               },
             ],
           },
