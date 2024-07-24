@@ -1,11 +1,8 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import { themes as prismThemes } from 'prism-react-renderer'
+import type { Config } from '@docusaurus/types'
+import type * as Preset from '@docusaurus/preset-classic'
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
-
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: '李白',
   tagline: '天下第二也挺好🙂',
   favicon: 'img/favicon.png',
@@ -31,47 +28,34 @@ const config = {
     defaultLocale: 'zh-Hans',
     locales: ['en', 'zh-Hans'],
   },
-  plugins: ['docusaurus-plugin-less'],
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/blacklee123/blacklee123.github.io/tree/main',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/blacklee123/blacklee123.github.io/tree/main',
         },
         theme: {
-          customCss: [
-            require.resolve('antd/dist/antd.css'),
-            require.resolve('./src/css/custom.less'),
-          ],
+          customCss: ['./src/css/custom.css'],
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      docs: {
-        sidebar: {
-          autoCollapseCategories: true,
-        },
-      },
+  themeConfig:{
       // Replace with your project's social card
       image: 'img/logo.png',
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
-      },
       navbar: {
         title: '李白',
         logo: {
@@ -93,6 +77,11 @@ const config = {
             to: '/about',
             label: '关于我',
             position: 'left',
+          },
+          {
+            href: 'https://github.com/blacklee123/blacklee123.github.io',
+            label: 'GitHub',
+            position: 'right',
           },
         ],
       },
@@ -142,10 +131,10 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
-    }),
+    } satisfies Preset.ThemeConfig,
 }
 
-module.exports = config
+export default config
